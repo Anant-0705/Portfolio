@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-black text-white font-sans font-light overflow-x-hidden;
+    /* Hide default cursor to show custom cursor */
+    cursor: none;
+  }
+
+  /* Expose custom fonts from google fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+}
+
+@layer utilities {
+  .hero-bg-text-stroke {
+    -webkit-text-stroke: 1px rgba(242, 240, 235, 0.06);
+  }
+  
+  .contact-bg-stroke {
+    -webkit-text-stroke: 1px rgba(242, 240, 235, 0.04);
+  }
+  
+  .mix-blend-diff {
+    mix-blend-mode: difference;
+  }
+  
+  /* SCROLL REVEAL utility */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
