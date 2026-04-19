@@ -1,17 +1,35 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const CustomCursor: React.FC = () => {
+  const [isEnabled, setIsEnabled] = useState(false);
+
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+    const updateState = () => {
+      setIsEnabled(mediaQuery.matches);
+    };
+
+    updateState();
+    mediaQuery.addEventListener('change', updateState);
+
+    return () => {
+      mediaQuery.removeEventListener('change', updateState);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isEnabled) return;
+
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
-    
+
     if (!cursor || !ring) return;
 
-    let mx = 0, my = 0;
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      mx = e.clientX; 
-      my = e.clientY;
+    const handlePointerMove = (e: PointerEvent) => {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      const mx = e.clientX;
+      const my = e.clientY;
       cursor.style.transform = `translate(${mx - 5}px, ${my - 5}px)`;
       ring.style.transform = `translate(${mx - 18}px, ${my - 18}px)`;
     };
@@ -28,30 +46,36 @@ const CustomCursor: React.FC = () => {
       ring.style.borderColor = 'rgba(200,255,0,0.4)';
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
-    
-    // Using event delegation for hover elements so it works with React router / dynamic content
-    const setupInteractions = () => {
-      const interactables = document.querySelectorAll('a, button');
-      interactables.forEach(el => {
-        el.addEventListener('mouseenter', handleMouseEnter);
-        el.addEventListener('mouseleave', handleMouseLeave);
-      });
-      return () => {
-        interactables.forEach(el => {
-          el.removeEventListener('mouseenter', handleMouseEnter);
-          el.removeEventListener('mouseleave', handleMouseLeave);
-        });
-      };
+    const handlePointerOver = (e: PointerEvent) => {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      const target = e.target as HTMLElement | null;
+      if (target?.closest('a, button')) {
+        handleMouseEnter();
+      }
     };
 
-    // Give react time to render DOM
-    setTimeout(setupInteractions, 100);
+    const handlePointerOut = (e: PointerEvent) => {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      const target = e.target as HTMLElement | null;
+      if (target?.closest('a, button')) {
+        handleMouseLeave();
+      }
+    };
+
+    document.addEventListener('pointermove', handlePointerMove, { passive: true });
+    document.addEventListener('pointerover', handlePointerOver);
+    document.addEventListener('pointerout', handlePointerOut);
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('pointermove', handlePointerMove);
+      document.removeEventListener('pointerover', handlePointerOver);
+      document.removeEventListener('pointerout', handlePointerOut);
     };
-  }, []);
+  }, [isEnabled]);
+
+  if (!isEnabled) {
+    return null;
+  }
 
   return (
     <>

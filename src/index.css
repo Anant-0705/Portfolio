@@ -9,8 +9,13 @@
 
   body {
     @apply bg-black text-white font-sans font-light overflow-x-hidden;
-    /* Hide default cursor to show custom cursor */
-    cursor: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    body {
+      /* Hide default cursor only where custom cursor is active */
+      cursor: none;
+    }
   }
 
   /* Expose custom fonts from google fonts */

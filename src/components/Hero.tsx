@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-end px-6 pb-12 md:px-12 md:pb-16 relative overflow-hidden">
+    <section id="home" className="min-h-screen flex flex-col justify-end px-6 pb-12 md:px-12 md:pb-16 relative overflow-hidden">
       {/* Neon Portrait Image Wrapper for Mobile Opacity Control */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-30 md:opacity-100 flex justify-end items-end overflow-hidden md:overflow-visible">
         <img 
@@ -52,6 +52,10 @@ const Hero: React.FC = () => {
           View Work
         </a>
       </div>
+
+      <p className="max-w-[760px] mt-10 text-[0.95rem] leading-[1.8] text-white/60 font-light opacity-0 animate-[fadeUp_0.8s_1s_forwards] relative z-10">
+        Hey - I am <strong className="text-white font-medium">Anant Singhal</strong>, a full stack developer and AI enthusiast pursuing my B.Tech in CSE (Artificial Intelligence). I enjoy building scalable microservices, full-stack SaaS platforms, and event-driven architectures that solve real-world problems.
+      </p>
     </section>
   );
 };

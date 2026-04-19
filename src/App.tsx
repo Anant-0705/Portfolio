@@ -2,9 +2,10 @@ import { useEffect } from 'react'
 import CustomCursor from './components/CustomCursor'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Marquee from './components/Marquee'
 import Projects from './components/Projects'
 import About from './components/About'
+import Activity from './components/Activity'
+import Hackathons from './components/Hackathons'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
@@ -34,9 +35,10 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Marquee />
-        <Projects />
         <About />
+        <Projects />
+        <Activity />
+        <Hackathons />
         <Contact />
       </main>
       <Footer />

@@ -36,7 +36,7 @@ const items = [...technologies, ...technologies]; // Duplicate for seamless loop
 
 const Marquee: React.FC = () => {
   return (
-    <div className="border-y border-white/[0.08] py-4 overflow-hidden bg-mid">
+    <section id="activity" className="border-y border-white/[0.08] py-4 overflow-hidden bg-mid">
       <div className="flex gap-12 whitespace-nowrap animate-[marquee_30s_linear_infinite]">
         {items.map((item, i) => (
           <span 
@@ -48,7 +48,7 @@ const Marquee: React.FC = () => {
           </span>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
