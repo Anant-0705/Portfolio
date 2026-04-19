@@ -32,11 +32,11 @@ const Hackathons: React.FC = () => {
       <div className="reveal flex flex-wrap gap-8 md:gap-12 mb-10">
         <div>
           <div className="font-display text-[3.5rem] leading-none text-accent">3+</div>
-          <div className="font-mono text-[0.62rem] tracking-[0.18em] uppercase text-subtle mt-1">Hackathons Won</div>
+          <div className="font-mono text-[0.68rem] tracking-[0.15em] uppercase text-white/70 mt-1">Hackathons Won</div>
         </div>
         <div>
-          <div className="font-display text-[3.5rem] leading-none text-accent">20+</div>
-          <div className="font-mono text-[0.62rem] tracking-[0.18em] uppercase text-subtle mt-1">Projects Built</div>
+          <div className="font-display text-[3.5rem] leading-none text-accent">10+</div>
+          <div className="font-mono text-[0.68rem] tracking-[0.15em] uppercase text-white/70 mt-1">Projects Built</div>
         </div>
       </div>
 
