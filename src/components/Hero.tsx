@@ -22,9 +22,9 @@ const Hero: React.FC = () => {
       {/* Neon Portrait Image Wrapper for Mobile Opacity Control */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-30 md:opacity-100 flex justify-end items-end overflow-hidden md:overflow-visible">
         <img 
-          src="/me in neon.png" 
-          alt="Neon Portrait" 
-          className="w-auto h-[55vh] md:h-[85vh] object-contain mix-blend-screen opacity-0 animate-[fadeUp_1.2s_0.8s_forwards] translate-x-[15%] md:translate-x-0"
+          src="https://github.com/Anant-0705.png?size=600" 
+          alt="GitHub Profile" 
+          className="w-[50vh] h-[50vh] md:w-[72vh] md:h-[72vh] object-cover rounded-full border border-white/20 shadow-[0_0_40px_rgba(0,0,0,0.45)] mix-blend-screen opacity-0 animate-[fadeUp_1.2s_0.8s_forwards] translate-x-[10%] md:translate-x-0"
         />
       </div>
       
