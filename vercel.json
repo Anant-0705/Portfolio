@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/relay", "destination": "/relay/index.html" },
+    { "source": "/relay/", "destination": "/relay/index.html" },
+    { "source": "/relay/privacy", "destination": "/relay/privacy/index.html" },
+    { "source": "/relay/privacy/", "destination": "/relay/privacy/index.html" }
+  ]
+}
